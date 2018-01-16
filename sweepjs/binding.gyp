@@ -14,8 +14,8 @@
             },
             "conditions": [
                 ["OS != 'win'",{
-                    "include_dirs": ["<!(node -e \"require('nan')\")"],
-                    "link_settings": { "libraries": ["-lsweep"], }
+                    "include_dirs": ["<!(node -e \"require('nan')\")", "../libsweep/include", "../libsweep/build/include"],
+                    "link_settings": { "libraries": ["-lsweep", "-L<!(pwd)/../libsweep/build/"], },
                 }],
                 ["OS == 'win'",{
                     "include_dirs": [

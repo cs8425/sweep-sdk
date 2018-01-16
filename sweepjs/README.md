@@ -8,9 +8,23 @@ Requires `libsweep.so` to be installed.
 
 On Linux:
 
+
+Build `libsweep` first:
+
+```bash
+pushd ../libsweep # go to sweep-sdk/libsweep/
+mkdir -p build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake --build .
+popd # go back sweep-sdk/sweepjs/
+```
+
+Then:
+
 ```bash
 npm install
-npm test
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../libsweep/build/ npm test # need to set LD path
 ```
 
 See the [examples](examples) directory for an example streaming data from the device to the browser in real-time using a Websocket server.
